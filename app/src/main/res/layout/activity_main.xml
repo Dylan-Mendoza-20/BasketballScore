@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rlytCell"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/txtTituloLocal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Local"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnLocalM1"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtTituloLocal"
+                android:layout_marginTop="40dp"
+                android:text="-1" />
+
+            <TextView
+                android:id="@+id/txtPuntosLocal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtTituloLocal"
+                android:layout_marginTop="22dp"
+                android:gravity="center_horizontal"
+                android:text="15"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="60dp" />
+
+            <LinearLayout
+                android:id="@+id/lytLocal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtTituloLocal"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnLocalP1"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="+1" />
+
+                <Button
+                    android:id="@+id/btnLocalP2"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="+2" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnReset"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnLocalM1"
+                android:layout_marginTop="100dp"
+                android:text="&#10008;"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/imgApp"
+                android:layout_width="120dp"
+                android:layout_height="220dp"
+                android:layout_below="@id/txtPuntosLocal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp"
+                android:layout_toStartOf="@id/btnSig"
+                android:layout_toEndOf="@id/btnReset"
+                android:adjustViewBounds="true"
+                android:src="@drawable/imgbalon" />
+
+            <Button
+                android:id="@+id/btnSig"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lytLocal"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="70dp"
+                android:text="&#10140;"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/btnVisitorM1"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgApp"
+                android:layout_marginTop="40dp"
+                android:text="-1" />
+
+            <TextView
+                android:id="@+id/txtPuntosVisitor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgApp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:text="21"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="60dp" />
+
+            <LinearLayout
+                android:id="@+id/lytVisitor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgApp"
+                android:layout_marginTop="15dp"
+                android:layout_alignParentEnd="true"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnVisitorP1"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="+1" />
+
+                <Button
+                    android:id="@+id/btnVisitorP2"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="+2" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtPuntosVisitor"
+                android:layout_marginTop="22dp"
+                android:gravity="center_horizontal"
+                android:text="Visitor"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </ScrollView>
+</layout>

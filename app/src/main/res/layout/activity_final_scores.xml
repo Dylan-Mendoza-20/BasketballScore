@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rltyCell2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/lytLocal"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="35dp">
+
+            <TextView
+                android:id="@+id/txtEdiLocal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Local"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/txtEdiLocal1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:gravity="center_horizontal"
+                android:text="14"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="60dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lytVisitor"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/lytLocal"
+            android:orientation="vertical"
+            android:padding="35dp">
+
+            <TextView
+                android:id="@+id/txtEdiVisitor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Visitor"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/txtEdiVisitor1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:gravity="center_horizontal"
+                android:text="14"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="60dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lytLocal"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="Quedaron en empate"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="20dp" />
+    </RelativeLayout>
+</layout>
