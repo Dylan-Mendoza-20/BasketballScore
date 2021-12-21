@@ -18,6 +18,8 @@ public class finalScores extends AppCompatActivity {
         binding = ActivityFinalScoresBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        getSupportActionBar().hide();
+
         Bundle data = getIntent().getExtras();
         String localP = Integer.toString(data.getInt("local_points"));
         String visitorP = Integer.toString(data.getInt("visitor_points"));
