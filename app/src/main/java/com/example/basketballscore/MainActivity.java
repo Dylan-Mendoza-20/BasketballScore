@@ -2,6 +2,7 @@ package com.example.basketballscore;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -13,25 +14,32 @@ import com.example.basketballscore.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    public int localPoints, visitorPoints;
     private ActivityMainBinding binding;
+    private MainViewModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        localPoints = 0;
-        visitorPoints = 0;
+
+        getSupportActionBar().hide();
+
+        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+
         updatePoints();
 
         binding.btnLocalM1.setOnClickListener(v -> {
-            local(0);
+            viewModel.local(0);
+            updatePoints();
         });
         binding.btnLocalP1.setOnClickListener(v -> {
-            local(1);
+            viewModel.local(1);
+            updatePoints();
         });
         binding.btnLocalP2.setOnClickListener(v -> {
-            local(2);
+            viewModel.local(2);
+            updatePoints();
         });
         binding.btnReset.setOnClickListener(v -> {
             opciones(1);
@@ -40,76 +48,38 @@ public class MainActivity extends AppCompatActivity {
             opciones(2);
         });
         binding.btnVisitorM1.setOnClickListener(v -> {
-            visitor(0);
+            viewModel.visitor(0);
+            updatePoints();
         });
         binding.btnVisitorP1.setOnClickListener(v -> {
-            visitor(1);
+            viewModel.visitor(1);
+            updatePoints();
         });
         binding.btnVisitorP2.setOnClickListener(v -> {
-            visitor(2);
+            viewModel.visitor(2);
+            updatePoints();
         });
     }
 
     public void updatePoints(){
-        String LP = Integer.toString(localPoints);
-        String VP = Integer.toString(visitorPoints);
+        String LP = Integer.toString(viewModel.getLocalPoints().getValue());
+        String VP = Integer.toString(viewModel.getVisitorPoints().getValue());
         binding.txtPuntosLocal.setText(LP);
         binding.txtPuntosVisitor.setText(VP);
     }
 
-    public void local(int opc){
-        switch (opc){
-            case 0:
-                if (localPoints>0){
-                    localPoints = localPoints-1;
-                    updatePoints();
-                }else{
-                    Toast.makeText(this, "Tiene el minimo de puntos el equipo local", Toast.LENGTH_SHORT).show();
-                }
-            break;
-            case 1:
-                localPoints += 1;
-                updatePoints();
-            break;
-            case 2:
-                localPoints += 2;
-                updatePoints();
-            break;
-        }
-    }
 
-    public void visitor(int opc){
-        switch (opc){
-            case 0:
-                if (visitorPoints>0){
-                    visitorPoints = visitorPoints-1;
-                    updatePoints();
-                }else{
-                    Toast.makeText(this, "Tiene el minimo de puntos el equipo visitante", Toast.LENGTH_SHORT).show();
-                }
-                break;
-            case 1:
-                visitorPoints += 1;
-                updatePoints();
-                break;
-            case 2:
-                visitorPoints += 2;
-                updatePoints();
-                break;
-        }
-    }
 
     public void opciones(int opc){
         if (opc == 1){
-            localPoints = 0;
-            visitorPoints = 0;
+            viewModel.reset();
             updatePoints();
             Toast.makeText(this, "Se limpiaron los marcadores", Toast.LENGTH_SHORT).show();
         }
         if (opc == 2){
             Intent cambio = new Intent(this, finalScores.class);
-            cambio.putExtra("local_points", localPoints);
-            cambio.putExtra("visitor_points", visitorPoints);
+            cambio.putExtra("local_points", viewModel.getLocalPoints().getValue());
+            cambio.putExtra("visitor_points", viewModel.getVisitorPoints().getValue());
             startActivity(cambio);
         }
     }
